@@ -1,0 +1,54 @@
+<app-header></app-header>
+
+<section class="relative top-0 left-0 z-[-1] w-full">
+  <img
+    width="100%"
+    height="100%"
+    src="assets/Title-Image.png"
+    alt="banner"
+    class="top-0"
+  />
+  <div class="absolute bottom-0 pl-20 pb-[12rem]">
+    <img
+      src="assets/Netflix_Symbol_RGB 1.png"
+      alt="n-logo"
+      class="inline mr-3 pl-2"
+    />
+    <span class="text-slate-100 text-xl tracking-[0.6rem] font-bold">SHOW</span>
+    <div>
+      <h1 class="text-9xl text-slate-100 font-bold mb-6">MAID</h1>
+    </div>
+    <div class="pl-3">
+      <button class="bg-white px-5 py-2 rounded-md mr-2 text-lg font-normal">
+        <i class="fa-solid fa-play"></i> Play
+      </button>
+      <button class="px-5 py-2 bg-glossy rounded-md text-white font-medium">
+        <i
+          class="fa-solid fa-info border-[2px] px-1 rounded-full border-white mr-1"
+        ></i
+        >More Info
+      </button>
+    </div>
+  </div>
+</section>
+
+<section
+  class="w-full bg-gradient-to-t from-transparent via-transparent to-gray-900 px-10 mt-10"
+>
+  <h1 class="text-white text-lg mb-4">
+    Top-Rated Movies <i class="fa-solid fa-greater-than"></i>
+  </h1>
+  <div
+    class="w-full flex xl:flex-row flex-wrap justify-center min-h-screen gap-4 max-container text-white mb-5"
+  >
+    <app-card
+      *ngFor="let movie of movies.results; let i = index"
+      [title]="movie.title"
+      [movieId]="i + 1"
+      [imageSource]="movie.poster_path"
+      [description]="movie.overview"
+      (viewMovie)="consoleMovieId($event)"
+      class="w-40 border-blue-300 text-center bg-pink-950 pb-4 rounded-lg"
+    ></app-card>
+  </div>
+</section>
